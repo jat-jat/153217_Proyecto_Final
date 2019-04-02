@@ -1,14 +1,41 @@
-<ion-header>
-  <ion-toolbar>
+﻿<ion-header>
+  <ion-toolbar color='dark'>
     <ion-title>
-      Ionic Blank
+      ¡Bienvenido a MicroChat!
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+  <form [formGroup]='formulario'>
+    <ion-item>
+        <ion-input type='email' formControlName='correo' placeholder='Dirección de correo electrónico'></ion-input>
+        <span *ngIf="formulario.get('correo').touched && formulario.get('correo').invalid">Inválido</span>
+    </ion-item>
+    
+    <ion-item *ngIf='modoIniciarSesion' >
+        <ion-input type='password' formControlName='contrasena' placeholder='Contraseña'></ion-input>
+        <span *ngIf="formulario.get('contrasena').touched && formulario.get('contrasena').invalid">Requerido</span>
+    </ion-item>
+  </form>
+  <br>
+  <ion-button *ngIf='modoIniciarSesion' type='button' expand='full' (click)='iniciarSesion()' [disabled]='formulario.invalid'>Iniciar sesión</ion-button>
+  <ion-item *ngIf='modoIniciarSesion'>
+    <ion-label>Recuérdame la próxima vez</ion-label>
+    <ion-checkbox color="danger" checked slot="start" #checkRecordar></ion-checkbox>
+  </ion-item>
+  <br *ngIf='modoIniciarSesion'>
+
+  <ion-button *ngIf='modoIniciarSesion' type='button' expand='full' color="success" (click)='crearCuenta()' [disabled]='formulario.invalid'>Crear cuenta</ion-button>
+  
+  <ion-button *ngIf='!modoIniciarSesion' type='button' expand='full' color="success" (click)='recuperarContrasena()' [disabled]="formulario.get('correo').invalid">Recuperar cuenta</ion-button>
+  <br>
+  <ion-button type='button' expand='full' color="warning" (click)='cambiarModo()'>{{(modoIniciarSesion ? '¿Olvidaste tu contraseña?' : 'Regresar')}}</ion-button>
+  <br>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar color='tertiary' style='text-align: center; font-style: italic;'>
+    Proyecto final - 153217 - IDS 8° - UP Chiapas
+  </ion-toolbar>
+</ion-footer>

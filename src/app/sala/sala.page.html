@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color='dark'>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Sala <i>{{nombreSala}}</i></ion-title>
+    
+    <ion-buttons slot="secondary">
+      <ion-button slot='start' (click)='mostrarMenu()'>
+        <ion-icon slot="icon-only" name="menu"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content #content>
+
+    <div class="message-wrap">
+
+      <div *ngFor="let key of Object.keys(mensajes)"
+            class="message {{mensajes[key].posicion}}">
+        <img class="user-img" [src]="servicio.infoBasicaUsuarios[mensajes[key].autor].foto">
+        <div class="msg-detail">
+          <div class="msg-info">
+            <p>
+                <strong>{{servicio.infoBasicaUsuarios[mensajes[key].autor].nick}}</strong>&nbsp;&nbsp;&nbsp;{{mensajes[key].datetime}}
+            </p>
+          </div>
+          <div class="msg-content">
+            <span class="triangle"></span>
+            <p class="line-breaker">{{mensajes[key].cuerpo}}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+</ion-content>
+
+<ion-footer>
+  <form [formGroup]="formChat">
+    <ion-item>
+      <ion-input type="text" formControlName="cuerpo" class='inputChat' placeholder="Escribe algo..."></ion-input>
+      <ion-icon name="md-send" (click)="enviarMensaje()" *ngIf="!formChat.invalid"  item-right></ion-icon>
+    </ion-item>
+  </form>
+</ion-footer>

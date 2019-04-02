@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar color='dark'>
+      <ion-buttons slot="secondary">
+        <ion-button (click)='cancelar()'>
+          <ion-icon slot="start" name="close-circle"></ion-icon>
+          Cancelar
+        </ion-button>
+      </ion-buttons>
+    <ion-title>Edita tu perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]='formulario'>
+      <ion-item>
+        <ion-label color='tertiary' position='floating'>Nick/Pseudónimo (cómo te mencionarán otros usuarios)</ion-label>
+        <ion-input type='text' formControlName='nick' (ionChange)='actualizarNick($event)'></ion-input>
+        <span *ngIf="formulario.get('nick').touched && formulario.get('nick').invalid">Inválido</span>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label color='tertiary' position='floating'>Nombre(s)</ion-label>
+        <ion-input type='text' formControlName='nombre'></ion-input>
+        <span *ngIf="formulario.get('nombre').touched && formulario.get('nombre').invalid">Inválido</span>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color='tertiary' position='floating'>Apellidos</ion-label>
+        <ion-input type='text' formControlName='apellidos'></ion-input>
+        <span *ngIf="formulario.get('apellidos').touched && formulario.get('apellidos').invalid">Inválido</span>
+      </ion-item>
+
+      <ion-list>
+        <ion-radio-group formControlName='sexo'>
+          <ion-list-header style='color: #633ce0;'>Sexo</ion-list-header>
+          <ion-item> <ion-label>Hombre</ion-label> <ion-radio value="H"></ion-radio> </ion-item>
+          <ion-item> <ion-label>Mujer</ion-label> <ion-radio value="M"></ion-radio> </ion-item>
+        </ion-radio-group>
+      </ion-list>
+      
+      <ion-item>
+        <ion-label style='color: #633ce0;'>Nacimiento</ion-label>
+        <ion-datetime formControlName='fecha_nacimiento' display-format='DD/MM/YYYY' cancelText='Cancelar' doneText='Seleccionar' min='1950-01-01' max='2014-12-31'></ion-datetime>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label color='tertiary'>Estado</ion-label>
+        <ion-select formControlName='estado' placeholder="Elija">
+          <ion-select-option *ngFor='let aux of estados' [value]='aux'>{{aux}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+  
+      <ion-item>
+          <ion-label color='tertiary'>Municipio</ion-label>
+          <ion-select formControlName='municipio' placeholder="Elija">
+            <ion-select-option *ngFor="let aux of municipios" [value]='aux'>{{aux}}</ion-select-option>
+          </ion-select>
+      </ion-item>
+
+      <ion-item>
+          <ion-label color='tertiary'>Foto de perfil</ion-label>
+          <ion-button [disabled]='!formulario.value.foto' (click)="verFoto()">
+            <ion-icon name="eye"></ion-icon>
+            Ver
+          </ion-button>
+          <ion-button (click)="elegirFoto(false)">
+            <ion-icon name="folder"></ion-icon>
+            Elegir desde galería
+          </ion-button>
+          <ion-button (click)="elegirFoto(true)">
+            <ion-icon name="camera"></ion-icon>
+            Tomar con cámara
+          </ion-button>
+      </ion-item>
+  
+      <ion-button type='button' color='success' style='color:black;' expand='full' (click)='guardarCambios()' [disabled]='formulario.invalid'>Guardar</ion-button>
+      <ion-button type='button' color='danger' expand='full' (click)='reiniciar()'>Reiniciar</ion-button>
+    </form>
+</ion-content>

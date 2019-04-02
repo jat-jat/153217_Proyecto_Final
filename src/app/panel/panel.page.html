@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar color='dark'>
+    <ion-buttons slot="secondary">
+      <ion-button slot='start' (click)='mostrarMenu()'>
+        <ion-icon slot="icon-only" name="menu"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Panel</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      Mis salas
+    </ion-list-header>
+
+    <ion-item *ngFor="let aux of filtrar(salas, 0)" [routerLink]="'/sala/' + aux.key + '/true/' + aux.nombre">
+      <ion-avatar slot='start'>
+        <img [src]="servicio.infoBasicaUsuarios[aux.propietario].foto">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{aux.nombre}}</h2>
+        <p>Creado por: {{servicio.infoBasicaUsuarios[aux.propietario].nick}}</p>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+      Salas en las que estoy
+    </ion-list-header>
+
+    <ion-item *ngFor="let aux of filtrar(salas, 1)" [routerLink]="'/sala/' + aux.key + '/false/' + aux.nombre">
+      <ion-avatar slot='start'>
+        <img [src]="servicio.infoBasicaUsuarios[aux.propietario].foto">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{aux.nombre}}</h2>
+        <p>Creado por: {{servicio.infoBasicaUsuarios[aux.propietario].nick}}</p>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+      Salas a las que me puedo unir
+    </ion-list-header>
+
+    <ion-item *ngFor="let aux of filtrar(salas, 2)" (click)="unirmeASala(aux.key, aux.nombre)" >
+      <ion-avatar slot='start'>
+        <img [src]="servicio.infoBasicaUsuarios[aux.propietario].foto">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{aux.nombre}}</h2>
+        <p>Creado por: {{servicio.infoBasicaUsuarios[aux.propietario].nick}}</p>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+  <!-- Botón para crear sala -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)='crearSala()'>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+</ion-fab>
+</ion-content>

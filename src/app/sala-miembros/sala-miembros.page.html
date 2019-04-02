@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color='dark'>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Miembros de la sala <i>{{nombreSala}}</i></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="idUsuarioPropietario" >
+      <ion-list-header>
+        Propietario
+      </ion-list-header>
+  
+      <ion-item [routerLink]="'/perfil-ver/' + idUsuarioPropietario">
+        <ion-avatar slot='start'>
+          <img [src]="servicio.infoBasicaUsuarios[idUsuarioPropietario].foto">
+        </ion-avatar>
+        <ion-label>
+          {{servicio.infoBasicaUsuarios[idUsuarioPropietario].nick}}
+        </ion-label>
+      </ion-item>
+  
+    </ion-list>
+    
+  <ion-list>
+    <ion-list-header>
+      Otras personas
+    </ion-list-header>
+
+    <ion-item *ngFor="let key of Object.keys(miembrosID)" [routerLink]="'/perfil-ver/' + miembrosID[key]">
+      <ion-avatar slot='start'>
+        <img [src]="servicio.infoBasicaUsuarios[miembrosID[key]].foto">
+      </ion-avatar>
+      <ion-label>
+        {{servicio.infoBasicaUsuarios[miembrosID[key]].nick}}
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color='tertiary' style='text-align: center; font-style: italic;'>
+    Toca sobre un miembro para ver su perfil.
+  </ion-toolbar>
+</ion-footer>

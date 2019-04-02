@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color='dark'>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalles de {{(esMiPerfil ? 'mi' : '')}} perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-thumbnail slot='start' (click)='verFoto()'>
+        <img [src]='datosPerfil.foto'>
+      </ion-thumbnail>
+      <ion-label>
+          <h3>{{datosPerfil.nombre}} {{datosPerfil.apellidos}}</h3>
+          <p>@{{datosPerfil.nick}}</p>
+        </ion-label>
+      <ion-icon slot="end" [ngStyle]="{'color': (datosPerfil.sexo == 'M' ? 'red' : 'blue')}" [name]="(datosPerfil.sexo == 'M' ? 'woman' : 'man')"></ion-icon>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon slot="start" name="calendar"></ion-icon>
+      <ion-label>
+        <h3>Nació el {{datosPerfil.fecha_nacimiento}}</h3>
+        <p>Tiene {{datosPerfil.edad}} años</p>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon slot="start" name="globe"></ion-icon>
+      <ion-label>
+        <h3>Vive en el estado de {{datosPerfil.estado}}</h3>
+        <p>En el municipio de {{datosPerfil.municipio}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

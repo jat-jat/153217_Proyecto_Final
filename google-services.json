@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "358776362405",
+    "firebase_url": "https://microchat-5098f.firebaseio.com",
+    "project_id": "microchat-5098f",
+    "storage_bucket": "microchat-5098f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:358776362405:android:b0b28cce4e3e96a9",
+        "android_client_info": {
+          "package_name": "com.javierarguello.chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "358776362405-ho205be1lvdfmp3h8qud3v7d9c9v944l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbRUU--tMAqNK3UR3EsoUvj_NFb30L6bE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
