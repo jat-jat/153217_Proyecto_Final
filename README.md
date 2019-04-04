@@ -43,7 +43,7 @@ Sobre derechos de autor:
  [Firebase](https://ionicframework.com/docs/native/firebase) (Nativo) | Recepción de notificaciones de menciones.
  [Firebase](https://www.npmjs.com/package/firebase) | Alcenamiento de los perfiles de usuario; salas, sus mensajes, sus miembros y su propietario.
  [Camera](https://ionicframework.com/docs/native/camera) | Selección de foto a través de la cámara o galería para el perfil de usuario.
- [Photo Viewer](https://ionicframework.com/docs/native/photo-viewer) | Visualización de fotos de perfil propios y ajenos.
+ [Photo Viewer](https://ionicframework.com/docs/native/photo-viewer) | Visualización de fotos de perfil propias y ajenas.
  [Native Audio](https://ionicframework.com/docs/native/native-audio) | Reproducción de sonidos al recibir un mensaje y al recibir una notificación.
  [Storage](https://ionicframework.com/docs/building/storage) | Guardado y lectura de la información del usuario si el checkbox "Recuérdame" está seleccionado.
  [Background Mode](https://ionicframework.com/docs/native/background-mode) | Evitar que el código se detenga al pasar a segundo plano.
