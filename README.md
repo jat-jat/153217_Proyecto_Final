@@ -4,7 +4,7 @@
 Esta es una aplicación de chat por salas, en la que para acceder, es necesario tener una cuenta.
 Todas las salas son públicas, es decir, cualquiera se puede unir a ellas.
 
-🔴🔴🔴 **Úsea con una conexión estable de internet. De lo contrario, la base de datos podría verse comprometida.**
+🔴🔴🔴 **Úsela con una conexión estable de internet. De lo contrario, la base de datos podría verse comprometida.**
 
 🔹 [Descarga un zip con capturas de pantalla de la app y de la consola de Firebase](https://github.com/jat-jat/153217_Proyecto_Final/files/3036239/MicroChat.-.Capturas.de.app.y.consola.de.Firebase.zip) 🔹
 
